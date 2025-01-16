@@ -27,8 +27,9 @@ docker compose down
 
 #### Step 1: Scrap the article using the script
 
+*BE CAREFULL, it will only work with Python 3.9+ until Python 3.12*  
+  
 Create a python venv using at the root of the `flask-api` directory  
-*BE CAREFULL, it will only work with Python 3.9+ until Python 3.12*
 ```bash
 python -m venv .venv
 ```
