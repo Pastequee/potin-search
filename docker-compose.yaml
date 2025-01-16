@@ -1,0 +1,26 @@
+services:
+  flask-api:
+    build:
+      context: ./flask-api
+    container_name: flask_api
+    networks:
+      - network
+    ports:
+      - "5000:5000"
+
+  nextjs-frontend:
+    build:
+      context: ./nextjs-frontend
+    container_name: nextjs_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - FLASK_API_URL=http://flask-api:5000
+    networks:
+      - network
+    depends_on:
+      - flask-api
+
+networks:
+  network:
+    driver: bridge
